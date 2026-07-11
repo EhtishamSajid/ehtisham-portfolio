@@ -1,20 +1,19 @@
-import { motion } from "framer-motion";
+import { FiCheckCircle } from "react-icons/fi";
+import GlassCard from "../Common/GlassCard";
 
 const AboutCard = ({ item }) => {
   return (
-    <motion.div
-      whileHover={{ y: -8 }}
-      transition={{ duration: 0.3 }}
-      className="rounded-3xl border border-white/30 bg-white/70 p-6 shadow-xl backdrop-blur-xl"
-    >
-      <h3 className="text-xl font-bold text-slate-900">
-        {item.title}
-      </h3>
+    <GlassCard className="h-full p-5 sm:p-6">
+      <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+        <FiCheckCircle className="h-5 w-5" />
+      </div>
 
-      <p className="mt-4 leading-7 text-slate-600">
+      <h3 className="text-lg font-bold text-slate-950">{item.title}</h3>
+
+      <p className="mt-3 text-sm leading-7 text-slate-600">
         {item.description}
       </p>
-    </motion.div>
+    </GlassCard>
   );
 };
 

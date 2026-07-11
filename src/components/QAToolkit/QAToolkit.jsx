@@ -1,34 +1,23 @@
 import SectionTitle from "../Common/SectionTitle";
-import Container from "../Common/Container";
+import SectionContainer from "../Common/SectionContainer";
 import ToolCard from "./ToolCard";
 import { tools } from "./toolData";
 
 const QAToolkit = () => {
   return (
-    <section
-      id="toolkit"
-      className="py-28 bg-slate-50"
-    >
-      <Container>
+    <SectionContainer id="toolkit" variant="muted">
+      <SectionTitle
+        subtitle="Toolkit"
+        title="QA Tools & Technologies"
+        description="A compact toolkit for planning, validating, documenting, and communicating software quality across product workflows."
+      />
 
-        <SectionTitle
-          subtitle="Toolkit"
-          title="QA Tools & Technologies"
-        />
-
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-
-          {tools.map((tool) => (
-            <ToolCard
-              key={tool.name}
-              tool={tool}
-            />
-          ))}
-
-        </div>
-
-      </Container>
-    </section>
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {tools.map((tool) => (
+          <ToolCard key={tool.name} tool={tool} />
+        ))}
+      </div>
+    </SectionContainer>
   );
 };
 

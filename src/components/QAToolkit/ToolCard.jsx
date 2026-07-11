@@ -1,26 +1,20 @@
-import { motion } from "framer-motion";
+import GlassCard from "../Common/GlassCard";
 
 const ToolCard = ({ tool }) => {
   const Icon = tool.icon;
 
   return (
-    <motion.div
-      whileHover={{ y: -8 }}
-      transition={{ duration: 0.3 }}
-      className="rounded-3xl border border-white/30 bg-white/70 p-6 shadow-xl backdrop-blur-xl"
-    >
-      <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-100">
-        <Icon className="text-3xl text-blue-600" />
+    <GlassCard className="h-full p-5 sm:p-6">
+      <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+        <Icon className="h-6 w-6" />
       </div>
 
-      <h3 className="text-xl font-bold text-slate-900">
-        {tool.name}
-      </h3>
+      <h3 className="text-lg font-bold text-slate-950">{tool.name}</h3>
 
-      <p className="mt-3 text-slate-600">
+      <p className="mt-3 text-sm leading-7 text-slate-600">
         {tool.description}
       </p>
-    </motion.div>
+    </GlassCard>
   );
 };
 

@@ -8,12 +8,12 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen overflow-hidden bg-slate-50 pt-32"
+      className="portfolio-hero relative overflow-hidden bg-slate-50"
     >
       <BackgroundOrbs />
 
-      <Container>
-        <div className="grid items-center gap-16 lg:grid-cols-2">
+      <Container className="relative z-10">
+        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           <HeroContent />
           <HeroImage />
         </div>

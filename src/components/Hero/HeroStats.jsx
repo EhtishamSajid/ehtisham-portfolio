@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import GlassCard from "../Common/GlassCard";
 
 const stats = [
   {
@@ -25,21 +26,18 @@ const HeroStats = () => {
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.5, duration: 0.8 }}
-      className="mt-20 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+      className="mt-14 grid gap-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4"
     >
       {stats.map((item) => (
-        <div
-          key={item.label}
-          className="rounded-3xl border border-white/30 bg-white/70 p-8 text-center shadow-xl backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
-        >
-          <h3 className="text-4xl font-black text-blue-600">
+        <GlassCard key={item.label} className="p-5 text-center sm:p-6">
+          <h3 className="text-3xl font-black text-blue-600 sm:text-4xl">
             {item.number}
           </h3>
 
-          <p className="mt-3 text-slate-600 font-medium">
+          <p className="mt-2 text-sm font-semibold text-slate-600">
             {item.label}
           </p>
-        </div>
+        </GlassCard>
       ))}
     </motion.div>
   );
