@@ -20,16 +20,16 @@ const SectionTitle = ({
         align === "center" ? "mx-auto" : ""
       } ${className}`}
     >
-      <p className="mb-3 text-sm font-semibold uppercase text-blue-600">
+      <p className="mb-3 text-sm font-semibold uppercase text-blue-600 dark:text-blue-400">
         {subtitle}
       </p>
 
-      <h2 className="text-3xl font-bold leading-tight text-slate-950 sm:text-4xl">
+      <h2 className="text-3xl font-bold leading-tight text-slate-950 dark:text-white sm:text-4xl">
         {title}
       </h2>
 
       {description && (
-        <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
+        <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600 dark:text-slate-300 sm:text-lg">
           {description}
         </p>
       )}

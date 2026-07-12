@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
+  --nav-offset: 120px;
   --surface: #ffffff;
   --surface-muted: #f8fafc;
   --surface-elevated: rgba(255, 255, 255, 0.86);
@@ -15,9 +18,21 @@
     0 18px 45px rgba(15, 23, 42, 0.07);
 }
 
+.dark {
+  --surface: #020617;
+  --surface-muted: #0f172a;
+  --surface-elevated: rgba(15, 23, 42, 0.86);
+  --ink: #f8fafc;
+  --muted: #cbd5e1;
+  --subtle: #94a3b8;
+  --line: rgba(148, 163, 184, 0.24);
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.35),
+    0 18px 45px rgba(0, 0, 0, 0.26);
+}
+
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 7.5rem;
+  scroll-padding-top: var(--nav-offset);
   background: var(--surface-muted);
 }
 
@@ -31,6 +46,13 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+.dark body {
+  background:
+    radial-gradient(circle at 10% 0%, rgba(37, 99, 235, 0.16), transparent 30rem),
+    linear-gradient(180deg, #020617 0%, #0f172a 48%, #020617 100%);
 }
 
 * {
@@ -72,6 +94,18 @@ svg {
 .portfolio-hero {
   padding-top: clamp(10rem, 14vw, 12rem);
   padding-bottom: clamp(5rem, 8vw, 7rem);
+}
+
+:where(
+  #home,
+  #about,
+  #toolkit,
+  #experience,
+  #projects,
+  #certifications,
+  #contact
+) {
+  scroll-margin-top: var(--nav-offset);
 }
 
 @media (max-width: 640px) {

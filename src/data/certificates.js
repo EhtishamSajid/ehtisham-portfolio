@@ -1,26 +1,22 @@
 export const certificates = [
   {
-    title: "Software Testing Fundamentals",
-    issuer: "Professional Certification",
+    title: "Test Case Management with TestWorthy",
+    issuer: "10Pearls University",
+    date: "February 2025",
   },
   {
-    title: "Manual Testing",
-    issuer: "Professional Certification",
+    title: "QA Fundamentals",
+    issuer: "10Pearls University",
+    date: "April 2025",
   },
   {
-    title: "API Testing with Postman",
-    issuer: "Professional Certification",
+    title: "Introduction to Software Testing – Level 1",
+    issuer: "TestGrid University",
+    date: "June 2026",
   },
   {
-    title: "Git & GitHub",
-    issuer: "Professional Certification",
-  },
-  {
-    title: "Jira",
-    issuer: "Professional Certification",
-  },
-  {
-    title: "Agile Fundamentals",
-    issuer: "Professional Certification",
+    title: "HTML, CSS & JavaScript",
+    issuer: "Coursera",
+    date: "2022",
   },
 ];

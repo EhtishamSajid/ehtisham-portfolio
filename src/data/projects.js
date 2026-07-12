@@ -1,17 +1,19 @@
 export const projects = [
   {
     id: 1,
-    title: "OrangeHRM Testing",
-    category: "Manual Testing",
+    title: "OrangeHRM QA Case Study",
+    category: "Manual Testing Case Study",
     description:
-      "Performed functional, UI, regression and exploratory testing on OrangeHRM. Prepared professional QA documentation including test scenarios, test cases and bug reports.",
+      "A complete manual testing case study currently being prepared, including test scenarios, test cases, defect reports, and a test summary.",
     technologies: [
       "Manual Testing",
-      "Jira",
-      "Postman",
-      "GitHub"
+      "QA Documentation",
+      "Case Study",
+      "Coming Soon"
     ],
-    status: "Completed",
+    status: "Planned",
+    badge: "Coming Soon",
+    path: "/projects/orangehrm",
     featured: true,
     image: "",
   },

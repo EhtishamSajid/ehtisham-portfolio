@@ -21,22 +21,22 @@ const About = () => {
           transition={{ duration: 0.8 }}
           className="max-w-2xl"
         >
-          <span className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3.5 py-2 text-sm font-semibold text-slate-700">
+          <span className="inline-block max-w-full rounded-full border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-semibold leading-5 text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 sm:text-sm">
             Manual QA | API Testing | Defect Reporting
           </span>
 
-          <h3 className="mt-6 text-2xl font-bold leading-tight text-slate-950 sm:text-3xl">
+          <h3 className="mt-6 text-2xl font-bold leading-tight text-slate-950 dark:text-white sm:text-3xl">
             Software Quality Assurance Engineer focused on reliable releases.
           </h3>
 
-          <p className="mt-5 text-base leading-8 text-slate-600 sm:text-lg">
+          <p className="mt-5 max-w-prose text-base leading-7 text-slate-600 dark:text-slate-300 sm:text-lg sm:leading-8">
             I am a Software Engineering graduate with a strong interest in
             Software Quality Assurance. I enjoy ensuring software reliability
             through structured manual testing, API validation, defect reporting,
             and continuous quality improvement.
           </p>
 
-          <p className="mt-4 text-base leading-8 text-slate-600 sm:text-lg">
+          <p className="mt-4 max-w-prose text-base leading-7 text-slate-600 dark:text-slate-300 sm:text-lg sm:leading-8">
             My goal is to contribute to teams that value quality, collaboration,
             and delivering exceptional user experiences.
           </p>

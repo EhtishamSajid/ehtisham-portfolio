@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import Navbar from "../components/Navbar/Navbar";
 import Hero from "../components/Hero/Hero";
 import About from "../components/About/About";
@@ -6,17 +8,25 @@ import Journey from "../components/Experience/Journey";
 import FeaturedProject from "../components/FeaturedProject/FeaturedProject";
 import Certifications from "../components/Certifications/Certifications";
 import Footer from "../components/Footer/Footer";
+import ScrollEnhancements from "../components/Common/ScrollEnhancements";
 
 const Home = () => {
+  useEffect(() => {
+    document.title = "Ehtisham Sajid | Software Quality Assurance Engineer Portfolio";
+  }, []);
+
   return (
     <>
+      <ScrollEnhancements />
       <Navbar />
-      <Hero />
-      <About />
-      <QAToolkit />
-      <Journey />
-      <FeaturedProject />
-      <Certifications />
+      <main>
+        <Hero />
+        <About />
+        <QAToolkit />
+        <Journey />
+        <FeaturedProject />
+        <Certifications />
+      </main>
       <Footer />
     </>
   );

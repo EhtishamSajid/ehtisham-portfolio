@@ -8,7 +8,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="portfolio-hero relative overflow-hidden bg-slate-50"
+      className="portfolio-hero relative overflow-hidden bg-slate-50 dark:bg-slate-950"
     >
       <BackgroundOrbs />
 

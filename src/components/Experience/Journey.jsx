@@ -13,7 +13,10 @@ const Journey = () => {
       />
 
       <div className="relative mx-auto max-w-5xl">
-        <div className="absolute bottom-8 left-4 top-4 w-px bg-slate-200 md:left-1/2 md:-translate-x-1/2" />
+        <div
+          className="absolute bottom-8 left-4 top-4 w-px bg-slate-200 dark:bg-slate-800 lg:left-1/2 lg:-translate-x-1/2"
+          aria-hidden="true"
+        />
 
         <div className="space-y-8">
           {journey.map((item, index) => (

@@ -28,20 +28,22 @@ const HeroImage = () => {
       transition={{ duration: 0.9 }}
       className="flex justify-center lg:justify-end"
     >
-      <div className="w-full max-w-sm rounded-lg border border-slate-200/80 bg-white/85 p-4 shadow-[var(--shadow-soft)] backdrop-blur-xl sm:p-5">
-        <div className="overflow-hidden rounded-lg bg-slate-100">
+      <div className="w-full max-w-sm rounded-lg border border-slate-200/80 bg-white/85 p-3 shadow-[var(--shadow-soft)] backdrop-blur-xl dark:border-slate-800 dark:bg-slate-900/78 sm:p-5">
+        <div className="overflow-hidden rounded-lg bg-slate-100 dark:bg-slate-800">
           <img
             src={profile}
-            alt="Ehtisham Sajid"
-            className="h-72 w-full object-cover sm:h-80"
+            alt="Portrait of Ehtisham Sajid"
+            className="h-64 w-full object-cover sm:h-80"
             style={{ objectPosition: "center 18%" }}
           />
         </div>
 
         <div className="mt-5 text-center">
-          <h3 className="text-2xl font-bold text-slate-950">Ehtisham Sajid</h3>
+          <h2 className="text-xl font-bold text-slate-950 dark:text-white sm:text-2xl">
+            Ehtisham Sajid
+          </h2>
 
-          <p className="mt-2 font-semibold text-blue-600">
+          <p className="mt-2 text-sm font-semibold text-blue-600 dark:text-blue-400 sm:text-base">
             Software Quality Assurance Engineer
           </p>
         </div>
@@ -53,13 +55,13 @@ const HeroImage = () => {
             return (
               <div
                 key={detail.label}
-                className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white/70 p-3"
+                className="flex min-w-0 items-center gap-3 rounded-lg border border-slate-200 bg-white/70 p-3 dark:border-slate-800 dark:bg-slate-950/50"
               >
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-slate-100">
-                  <Icon className={`h-4 w-4 ${detail.tone}`} />
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800">
+                  <Icon className={`h-4 w-4 ${detail.tone}`} aria-hidden="true" />
                 </span>
 
-                <span className="text-sm font-medium leading-6 text-slate-700">
+                <span className="min-w-0 text-sm font-medium leading-6 text-slate-700 dark:text-slate-300">
                   {detail.label}
                 </span>
               </div>
