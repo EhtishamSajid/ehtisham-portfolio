@@ -3,27 +3,27 @@ import GlassCard from "../Common/GlassCard";
 const stats = [
   {
     label: "Status",
-    value: "Planned case study",
+    value: "In-progress case study",
   },
   {
-    label: "Planned Artifacts",
-    value: "Scenarios, cases, reports, summary",
+    label: "Artifacts",
+    value: "Scenarios, test cases, defects",
   },
   {
-    label: "Current Focus",
+    label: "Process",
     value: "Manual QA documentation",
   },
 ];
 
 const ProjectStats = () => {
   return (
-    <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+    <div className="grid gap-5 sm:grid-cols-3 lg:sticky lg:top-28 lg:grid-cols-1">
       {stats.map((stat) => (
-        <GlassCard key={stat.label} hover={false} className="min-w-0 p-5">
-          <p className="text-sm font-semibold text-blue-600 dark:text-blue-400">
+        <GlassCard key={stat.label} hover={false} className="min-w-0 p-5 sm:p-6">
+          <p className="text-[12px] font-extrabold uppercase tracking-[0.16em] text-blue-600 dark:text-sky-300 sm:text-[13px]">
             {stat.label}
           </p>
-          <p className="mt-2 break-words text-base font-bold leading-7 text-slate-950 dark:text-white">
+          <p className="mt-3 break-words text-lg font-black leading-7 text-slate-950 dark:text-white sm:text-xl">
             {stat.value}
           </p>
         </GlassCard>

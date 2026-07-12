@@ -1,9 +1,9 @@
 import Container from "./Container";
 
 const variants = {
-  white: "bg-white dark:bg-slate-950",
-  muted: "bg-slate-50 dark:bg-slate-900",
-  soft: "bg-gradient-to-b from-white to-slate-50 dark:from-slate-950 dark:to-slate-900",
+  white: "bg-transparent",
+  muted: "bg-transparent",
+  soft: "bg-transparent",
   dark: "bg-slate-950 text-white",
   transparent: "bg-transparent",
 };

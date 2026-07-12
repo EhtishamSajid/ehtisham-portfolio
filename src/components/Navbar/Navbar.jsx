@@ -48,13 +48,19 @@ const Navbar = () => {
     }
   };
 
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <Container className="py-3 sm:py-4">
-        <div className="rounded-xl border border-slate-200/80 bg-white/90 shadow-[0_8px_30px_rgba(15,23,42,0.08)] backdrop-blur-xl transition-colors duration-200 dark:border-slate-800 dark:bg-slate-950/90 dark:shadow-[0_8px_30px_rgba(0,0,0,0.24)]">
+        <div
+          className={`border border-white/70 bg-white/76 shadow-[0_14px_38px_rgba(37,99,235,0.11)] backdrop-blur-2xl transition-all duration-200 dark:border-white/10 dark:bg-slate-950/72 dark:shadow-[0_18px_48px_rgba(0,0,0,0.3)] ${
+            menuOpen ? "rounded-[1.75rem]" : "rounded-full"
+          }`}
+        >
           <nav
             aria-label="Primary navigation"
-            className="flex h-16 items-center justify-between gap-3 px-4 sm:px-5 lg:px-6"
+            className="relative flex h-14 items-center justify-between gap-3 px-3 sm:px-4 lg:h-[60px] lg:px-5"
           >
             <Link
               to="home"
@@ -64,19 +70,25 @@ const Navbar = () => {
               role="link"
               tabIndex={0}
               onKeyDown={(event) => handleLinkKeyDown(event, "home")}
-              className="min-w-0 cursor-pointer rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
+              onClick={closeMenu}
+              className="min-w-0 cursor-pointer rounded-full px-2 py-1.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
             >
-              <div className="min-w-0 leading-none">
-                <p className="truncate text-sm font-black text-slate-950 dark:text-white sm:text-base">
-                  Ehtisham Sajid
-                </p>
-                <p className="mt-1 truncate text-xs font-semibold text-blue-600 dark:text-blue-400">
-                  Software QA Engineer
-                </p>
+              <div className="flex min-w-0 items-center gap-3 leading-none">
+                <span className="hidden h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-sky-400 text-sm font-black text-white shadow-[0_10px_24px_rgba(37,99,235,0.28)] sm:flex">
+                  ES
+                </span>
+                <div className="min-w-0">
+                  <p className="truncate text-sm font-black text-slate-950 dark:text-white sm:text-base">
+                    Ehtisham Sajid
+                  </p>
+                  <p className="mt-1 truncate text-xs font-bold text-blue-600 dark:text-sky-300">
+                    Software QA Engineer
+                  </p>
+                </div>
               </div>
             </Link>
 
-            <ul className="hidden items-center gap-1 lg:flex">
+            <ul className="hidden items-center gap-1 rounded-full border border-slate-200/60 bg-white/50 p-1 dark:border-white/10 dark:bg-white/[0.045] lg:flex">
               {navItems.map((item) => (
                 <li key={item.id}>
                   <Link
@@ -87,7 +99,9 @@ const Navbar = () => {
                     role="link"
                     tabIndex={0}
                     onKeyDown={(event) => handleLinkKeyDown(event, item.id)}
-                    className="cursor-pointer rounded-lg px-3 py-2 text-sm font-semibold text-slate-600 transition hover:bg-slate-100 hover:text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
+                    spy={true}
+                    activeClass="!bg-blue-600 !text-white shadow-[0_8px_18px_rgba(37,99,235,0.22)] dark:!bg-sky-300 dark:!text-slate-950"
+                    className="cursor-pointer rounded-full px-3.5 py-2 text-[13px] font-extrabold text-slate-600 transition-all duration-200 hover:bg-white hover:text-slate-950 hover:shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:text-slate-300 dark:hover:bg-white/[0.08] dark:hover:text-white xl:px-4"
                   >
                     {item.name}
                   </Link>
@@ -102,7 +116,7 @@ const Navbar = () => {
                 aria-label={themeLabel}
                 aria-pressed={isDark}
                 title={themeLabel}
-                className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-slate-200 bg-white/80 text-slate-700 transition hover:border-blue-300 hover:text-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:border-slate-700 dark:bg-slate-900/80 dark:text-slate-200 dark:hover:border-blue-400 dark:hover:text-blue-300"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200/80 bg-white/72 text-slate-700 transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-300 hover:text-blue-700 hover:shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-200 dark:hover:border-sky-300/40 dark:hover:text-sky-200"
               >
                 {isDark ? (
                   <FiSun className="h-5 w-5" aria-hidden="true" />
@@ -129,7 +143,7 @@ const Navbar = () => {
               aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-controls={menuId}
               aria-expanded={menuOpen}
-              className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-slate-200 text-2xl text-slate-700 transition hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800 lg:hidden"
+              className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-blue-400/70 bg-blue-600 text-2xl text-white shadow-[0_12px_30px_rgba(37,99,235,0.3)] backdrop-blur-xl transition hover:-translate-y-0.5 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:border-sky-300/40 dark:bg-sky-300 dark:text-slate-950 dark:hover:bg-sky-200 lg:hidden"
             >
               {menuOpen ? (
                 <HiOutlineX aria-hidden="true" />
@@ -142,7 +156,7 @@ const Navbar = () => {
           {menuOpen && (
             <div
               id={menuId}
-              className="border-t border-slate-200/80 px-4 py-4 dark:border-slate-800 lg:hidden"
+              className="border-t border-slate-200/70 px-3 pb-4 pt-3 dark:border-white/10 sm:px-4 lg:hidden"
             >
               <div className="flex flex-col gap-2">
                 {navItems.map((item) => (
@@ -158,7 +172,9 @@ const Navbar = () => {
                     onKeyDown={(event) =>
                       handleLinkKeyDown(event, item.id, true)
                     }
-                    className="cursor-pointer rounded-lg px-3 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 hover:text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
+                    spy={true}
+                    activeClass="!bg-blue-600 !text-white dark:!bg-sky-300 dark:!text-slate-950"
+                    className="cursor-pointer rounded-2xl px-4 py-3 text-sm font-extrabold text-slate-700 transition hover:bg-white hover:text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:text-slate-300 dark:hover:bg-white/[0.08] dark:hover:text-white"
                   >
                     {item.name}
                   </Link>
@@ -169,7 +185,7 @@ const Navbar = () => {
                   onClick={toggleTheme}
                   aria-label={themeLabel}
                   aria-pressed={isDark}
-                  className="mt-2 inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white/80 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-blue-300 hover:text-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:border-slate-700 dark:bg-slate-900/80 dark:text-slate-200 dark:hover:border-blue-400 dark:hover:text-blue-300"
+                  className="mt-2 inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-slate-200 bg-white/80 px-5 py-3 text-sm font-extrabold text-slate-700 transition hover:border-blue-300 hover:text-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-200 dark:hover:border-sky-300/40 dark:hover:text-sky-200"
                 >
                   {isDark ? (
                     <FiSun className="h-4 w-4" aria-hidden="true" />

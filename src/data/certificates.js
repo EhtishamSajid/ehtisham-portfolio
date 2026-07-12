@@ -10,7 +10,7 @@ export const certificates = [
     date: "April 2025",
   },
   {
-    title: "Introduction to Software Testing – Level 1",
+    title: "Introduction to Software Testing - Level 1",
     issuer: "TestGrid University",
     date: "June 2026",
   },

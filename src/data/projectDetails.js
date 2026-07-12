@@ -3,17 +3,17 @@ export const projectDetails = [
     slug: "orangehrm",
     path: "/projects/orangehrm",
     title: "OrangeHRM QA Case Study",
-    status: "Planned",
+    status: "In progress",
     description:
-      "A complete manual testing case study currently being prepared, including test scenarios, test cases, defect reports, and a test summary.",
+      "An in-progress manual testing case study structured around test scenarios, test cases, defect reporting, and a concise QA summary.",
     sections: [
       {
         title: "Overview",
         body:
-          "This page is reserved for a future OrangeHRM manual testing case study. The case study is planned and will be documented when the testing artifacts are prepared.",
+          "This case study is being prepared as a focused demonstration of manual QA process, documentation clarity, and defect communication using selected OrangeHRM workflows.",
       },
       {
-        title: "Planned Testing Scope",
+        title: "Testing Scope",
         items: [
           "Manual functional testing of selected OrangeHRM workflows",
           "Test scenario design for core user journeys",
@@ -23,7 +23,7 @@ export const projectDetails = [
         ],
       },
       {
-        title: "Planned Deliverables",
+        title: "Deliverables",
         items: [
           "Test Plan",
           "Test Scenarios",
@@ -40,7 +40,7 @@ export const projectDetails = [
       {
         title: "Current Status",
         body:
-          "Planned. No testing work or deliverables are being presented as completed on this page.",
+          "In progress. Artifacts will be published after review for accuracy, completeness, and clear reproduction detail.",
       },
     ],
   },

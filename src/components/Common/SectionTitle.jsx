@@ -16,20 +16,20 @@ const SectionTitle = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className={`mb-10 flex max-w-3xl flex-col sm:mb-12 ${alignment} ${
+      className={`mb-10 flex max-w-4xl flex-col sm:mb-14 lg:mb-16 ${alignment} ${
         align === "center" ? "mx-auto" : ""
       } ${className}`}
     >
-      <p className="mb-3 text-sm font-semibold uppercase text-blue-600 dark:text-blue-400">
+      <p className="mb-4 text-[13px] font-extrabold uppercase tracking-[0.2em] text-blue-600 dark:text-sky-300 sm:text-[14px]">
         {subtitle}
       </p>
 
-      <h2 className="text-3xl font-bold leading-tight text-slate-950 dark:text-white sm:text-4xl">
+      <h2 className="max-w-4xl text-[2.15rem] font-black leading-[1.08] text-slate-950 dark:text-white sm:text-5xl lg:text-[54px]">
         {title}
       </h2>
 
       {description && (
-        <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600 dark:text-slate-300 sm:text-lg">
+        <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600 dark:text-slate-300 sm:text-[20px] sm:leading-9">
           {description}
         </p>
       )}

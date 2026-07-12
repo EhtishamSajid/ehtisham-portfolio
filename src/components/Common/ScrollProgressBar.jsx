@@ -14,7 +14,7 @@ const ScrollProgressBar = ({ progress = 0 }) => {
       className="pointer-events-none fixed inset-x-0 top-0 z-[60] h-0.5 bg-transparent"
     >
       <div
-        className="h-full origin-left bg-blue-600 transition-transform duration-150 ease-out dark:bg-blue-400"
+        className="h-full origin-left bg-gradient-to-r from-blue-600 to-sky-400 transition-transform duration-150 ease-out"
         style={{ transform: `scaleX(${safeProgress})` }}
       />
     </div>

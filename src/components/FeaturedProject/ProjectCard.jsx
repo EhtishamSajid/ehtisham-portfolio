@@ -1,56 +1,73 @@
 import { Link } from "react-router-dom";
-import { FiClock, FiLayers } from "react-icons/fi";
+import { FiArrowRight, FiCheckCircle, FiClock, FiLayers } from "react-icons/fi";
 import GlassCard from "../Common/GlassCard";
 
 const ProjectCard = ({ project }) => {
   return (
-    <GlassCard className="min-w-0 p-5 sm:p-6">
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-        <div className="min-w-0">
-          <span className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5 text-sm font-semibold text-blue-700">
-            <FiClock className="h-4 w-4 shrink-0" aria-hidden="true" />
-            {project.badge ?? project.status}
-          </span>
+    <GlassCard className="group/project min-w-0 overflow-hidden p-0">
+      <div className="grid lg:grid-cols-[0.92fr_1.08fr]">
+        <div className="relative min-h-[240px] overflow-hidden bg-gradient-to-br from-blue-700 via-blue-500 to-sky-400 p-6 text-white sm:min-h-[310px] sm:p-8">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_18%,rgba(255,255,255,0.34),transparent_13rem),radial-gradient(circle_at_82%_74%,rgba(255,255,255,0.18),transparent_14rem)]" />
+          <div className="absolute inset-x-6 bottom-6 top-20 rounded-[1.5rem] border border-white/20 bg-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.16)] backdrop-blur-sm transition-transform duration-500 group-hover/project:-translate-y-2" />
+          <div className="absolute bottom-10 left-8 right-8 h-20 rounded-2xl border border-white/20 bg-white/14 backdrop-blur-md sm:bottom-12 sm:left-12 sm:right-12" />
+          <div className="absolute bottom-[4.75rem] left-12 h-3 w-24 rounded-full bg-white/45 sm:bottom-20 sm:left-16 sm:w-28" />
+          <div className="absolute bottom-[4.75rem] left-40 h-3 w-12 rounded-full bg-white/24 sm:bottom-20 sm:left-48 sm:w-16" />
+          <div className="absolute bottom-14 left-12 h-2 w-36 rounded-full bg-white/22 sm:bottom-16 sm:left-16 sm:w-44" />
+          <div className="relative z-10 flex h-full flex-col justify-between">
+            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-white/25 bg-white/16 px-3 py-1.5 text-[14px] font-extrabold text-white backdrop-blur">
+              <FiClock className="h-4 w-4 shrink-0" aria-hidden="true" />
+              {project.badge ?? project.status}
+            </span>
 
-          <h3 className="mt-5 break-words text-xl font-bold leading-tight text-slate-950 dark:text-white sm:text-2xl">
+            <div className="mt-20 sm:mt-24">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/20 bg-white/16 backdrop-blur">
+                <FiLayers className="h-7 w-7" aria-hidden="true" />
+              </div>
+              <p className="mt-4 max-w-xs text-lg font-black leading-tight">
+                {project.category}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="min-w-0 p-6 sm:p-8">
+          <h3 className="break-words text-[1.85rem] font-black leading-tight text-slate-950 dark:text-white sm:text-3xl">
             {project.title}
           </h3>
 
-          <p className="mt-2 font-semibold text-blue-600 dark:text-blue-400">
+          <p className="mt-3 text-base font-extrabold text-blue-600 dark:text-sky-300 sm:text-lg">
             {project.category}
           </p>
-        </div>
 
-        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600 dark:bg-blue-950/50 dark:text-blue-300">
-          <FiLayers className="h-6 w-6" aria-hidden="true" />
+          <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600 dark:text-slate-300 sm:mt-6 sm:text-lg">
+            {project.description}
+          </p>
+
+          <div className="mt-6 flex flex-wrap gap-2.5 sm:mt-7">
+            {project.technologies.map((technology) => (
+              <span
+                key={technology}
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200/80 bg-white/70 px-3.5 py-2 text-[14px] font-extrabold text-slate-700 shadow-sm dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-200 sm:text-[15px]"
+              >
+                <FiCheckCircle className="h-4 w-4 text-blue-600 dark:text-sky-300" aria-hidden="true" />
+                {technology}
+              </span>
+            ))}
+          </div>
+
+          {project.path && (
+            <div className="mt-8">
+              <Link
+                to={project.path}
+              className="group/link inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-blue-500/80 bg-gradient-to-br from-blue-600 via-blue-500 to-sky-400 px-6 py-3 text-[15px] font-extrabold leading-none text-white shadow-[0_12px_30px_rgba(37,99,235,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_38px_rgba(37,99,235,0.34)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:border-sky-300/40"
+              >
+                View case study
+                <FiArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-1" aria-hidden="true" />
+              </Link>
+            </div>
+          )}
         </div>
       </div>
-
-      <p className="mt-5 max-w-3xl text-base leading-7 text-slate-600 dark:text-slate-300 sm:leading-8">
-        {project.description}
-      </p>
-
-      <div className="mt-6 flex flex-wrap gap-2">
-        {project.technologies.map((technology) => (
-          <span
-            key={technology}
-            className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-semibold text-slate-700 dark:border-slate-700 dark:bg-slate-950/50 dark:text-slate-200"
-          >
-            {technology}
-          </span>
-        ))}
-      </div>
-
-      {project.path && (
-        <div className="mt-6">
-          <Link
-            to={project.path}
-            className="inline-flex min-h-11 items-center justify-center rounded-lg border border-blue-600 bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(37,99,235,0.22)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:border-blue-500 dark:bg-blue-500 dark:hover:bg-blue-400"
-          >
-            View case study
-          </Link>
-        </div>
-      )}
     </GlassCard>
   );
 };

@@ -15,8 +15,8 @@ export const aboutHighlights = [
       "Able to create structured bug reports with severity, priority, and reproduction steps.",
   },
   {
-    title: "Continuous Learning",
+    title: "QA Documentation",
     description:
-      "Passionate about improving software quality and learning modern QA practices.",
+      "Comfortable preparing clear QA artifacts that help engineers reproduce, prioritize, and resolve issues.",
   },
 ];

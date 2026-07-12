@@ -4,15 +4,15 @@ export const projects = [
     title: "OrangeHRM QA Case Study",
     category: "Manual Testing Case Study",
     description:
-      "A complete manual testing case study currently being prepared, including test scenarios, test cases, defect reports, and a test summary.",
+      "An in-progress manual testing case study structured around test scenarios, test cases, defect reporting, and a concise QA summary.",
     technologies: [
       "Manual Testing",
-      "QA Documentation",
-      "Case Study",
-      "Coming Soon"
+      "Test Scenarios",
+      "Defect Reports",
+      "QA Summary"
     ],
-    status: "Planned",
-    badge: "Coming Soon",
+    status: "In progress",
+    badge: "Case study in progress",
     path: "/projects/orangehrm",
     featured: true,
     image: "",

@@ -51,28 +51,37 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer id="contact" className="bg-slate-950 py-16 text-white sm:py-20">
+    <footer id="contact" className="relative overflow-hidden bg-[#0b1120] py-16 text-white sm:py-20">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(37,99,235,0.32),transparent_28rem),radial-gradient(circle_at_82%_20%,rgba(56,189,248,0.16),transparent_24rem),linear-gradient(180deg,rgba(15,23,42,0),#0b1120_72%)]"
+      />
       <Container>
-        <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-          <div>
-            <p className="text-sm font-semibold uppercase text-blue-300">
+        <div className="relative z-10 grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start lg:gap-14">
+          <div className="max-w-3xl">
+            <p className="text-[13px] font-extrabold uppercase tracking-[0.2em] text-sky-300 sm:text-[14px]">
               Contact
             </p>
 
-            <h2 className="mt-4 max-w-2xl text-3xl font-bold leading-tight sm:text-4xl">
+            <h2 className="mt-5 max-w-3xl text-[2.15rem] font-black leading-[1.08] sm:text-5xl lg:text-[54px]">
               Ready to help teams ship cleaner, more reliable software.
             </h2>
 
-            <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+            <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300 sm:mt-6 sm:text-[20px] sm:leading-9">
               Open to junior Software QA Engineer roles, internships, and
               entry-level product quality opportunities in collaborative teams.
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <div className="mt-7 inline-flex items-center gap-3 rounded-full border border-emerald-300/20 bg-emerald-300/10 px-4 py-2.5 text-[14px] font-extrabold text-emerald-200 sm:mt-8 sm:text-[15px]">
+              <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_0_5px_rgba(52,211,153,0.12)]" />
+              Available for SQA Opportunities
+            </div>
+
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Button href={`mailto:${portfolioData.email}`} className="w-full sm:w-auto">
                 <span className="flex items-center justify-center gap-2">
                   Email Me
-                  <FiArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                  <FiArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
                 </span>
               </Button>
 
@@ -80,13 +89,13 @@ const Footer = () => {
                 variant="secondary"
                 href={portfolioData.linkedin}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 ariaLabel="Visit Ehtisham Sajid on LinkedIn"
-                className="w-full border-white bg-white text-slate-950 hover:bg-slate-100 hover:text-slate-950 sm:w-auto"
+                className="w-full border-white/20 bg-white/10 text-white hover:bg-white hover:text-slate-950 sm:w-auto"
               >
                 <span className="flex items-center justify-center gap-2">
                   LinkedIn Profile
-                  <FiArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                  <FiArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
                 </span>
               </Button>
 
@@ -95,7 +104,7 @@ const Footer = () => {
                 href={RESUME_PATH}
                 download={RESUME_FILENAME}
                 ariaLabel="Download Ehtisham Sajid CV"
-                className="w-full border-white bg-white text-slate-950 hover:bg-slate-100 hover:text-slate-950 sm:w-auto"
+                className="w-full border-white/20 bg-white/10 text-white hover:bg-white hover:text-slate-950 sm:w-auto"
               >
                 <span className="flex items-center justify-center gap-2">
                   Download Resume
@@ -105,21 +114,21 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="rounded-lg border border-white/10 bg-white/[0.04] p-4 sm:p-5">
+          <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.07] p-3 shadow-[0_24px_70px_rgba(0,0,0,0.32)] backdrop-blur-2xl sm:p-5">
             <div className="space-y-4">
               {contactItems.map((item) => {
                 const Icon = item.icon;
                 const content = (
-                  <div className="group flex min-w-0 items-center gap-3 rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:border-blue-300/40 hover:bg-white/[0.08]">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/10 text-blue-300">
+                  <div className="group flex min-w-0 items-center gap-4 rounded-[1.35rem] border border-white/10 bg-white/[0.06] p-4 transition hover:-translate-y-0.5 hover:border-sky-300/40 hover:bg-white/[0.1]">
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-sky-300">
                       <Icon className="h-5 w-5" aria-hidden="true" />
                     </span>
 
                     <span className="min-w-0">
-                      <span className="block text-sm font-semibold text-slate-400">
+                      <span className="block text-[14px] font-extrabold text-slate-400">
                         {item.label}
                       </span>
-                      <span className="block break-words text-sm font-semibold text-white transition group-hover:text-blue-100">
+                      <span className="mt-1 block break-words text-base font-extrabold text-white transition group-hover:text-sky-100">
                         {item.value}
                       </span>
                     </span>
@@ -131,9 +140,9 @@ const Footer = () => {
                     key={item.label}
                     href={item.href}
                     target={item.external ? "_blank" : undefined}
-                    rel={item.external ? "noreferrer" : undefined}
+                    rel={item.external ? "noopener noreferrer" : undefined}
                     aria-label={`${item.label}: ${item.value}`}
-                    className="block rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-300"
+                    className="block rounded-[1.35rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
                   >
                     {content}
                   </a>
@@ -143,7 +152,7 @@ const Footer = () => {
               })}
             </div>
 
-            <div className="mt-4 flex gap-3">
+            <div className="mt-4 flex flex-wrap gap-3">
               {socialLinks.map((link) => {
                 const Icon = link.icon;
 
@@ -152,10 +161,10 @@ const Footer = () => {
                     key={link.label}
                     href={link.href}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     aria-label={link.label}
                     title={link.label}
-                    className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-slate-300 transition hover:border-blue-300/40 hover:bg-white/[0.08] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-300"
+                    className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.06] text-slate-300 transition hover:-translate-y-0.5 hover:border-sky-300/40 hover:bg-white/[0.1] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
                   >
                     <Icon className="h-5 w-5" aria-hidden="true" />
                   </a>
@@ -165,7 +174,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
+        <div className="relative z-10 mt-14 flex flex-col gap-3 border-t border-white/10 pt-7 text-[14px] font-semibold leading-6 text-slate-400 sm:mt-16 sm:flex-row sm:items-center sm:justify-between sm:text-[15px]">
           <p className="break-words">Copyright 2026 {portfolioData.name}. Software Quality Assurance Engineer.</p>
           <p>Built with React, Vite, and Tailwind CSS.</p>
         </div>
