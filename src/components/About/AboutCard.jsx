@@ -1,21 +1,40 @@
-import { FiCheckCircle } from "react-icons/fi";
-import GlassCard from "../Common/GlassCard";
+import { motion } from "framer-motion";
 
-const AboutCard = ({ item }) => {
+const fallbackAccents = ["blue", "purple", "green", "orange"];
+
+const AboutCard = ({ item, index = 0 }) => {
+  const Icon = item.icon;
+  const accent =
+    item.accent ?? fallbackAccents[index % fallbackAccents.length];
+
   return (
-    <GlassCard className="flex h-full min-h-[220px] flex-col p-6 sm:p-7">
-      <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-50 to-sky-50 text-blue-600 ring-1 ring-blue-100 dark:from-blue-500/15 dark:to-sky-300/10 dark:text-sky-300 dark:ring-sky-300/20">
-        <FiCheckCircle className="h-6 w-6" aria-hidden="true" />
+    <motion.article
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{
+        duration: 0.55,
+        delay: index * 0.07,
+        ease: "easeOut",
+      }}
+      className={`about-skill-card about-skill-card--${accent}`}
+    >
+      <span className="about-skill-bottom-accent" aria-hidden="true" />
+
+      <div className="about-skill-icon-wrap">
+        <span className="about-skill-icon-glow" aria-hidden="true" />
+
+        <span className="about-skill-icon" aria-hidden="true">
+          <Icon />
+        </span>
       </div>
 
-      <h3 className="text-[1.35rem] font-black leading-tight text-slate-950 dark:text-white sm:text-2xl">
-        {item.title}
-      </h3>
+      <h3>{item.title}</h3>
 
-      <p className="mt-4 text-base leading-7 text-slate-600 dark:text-slate-300">
-        {item.description}
-      </p>
-    </GlassCard>
+      <span className="about-skill-underline" aria-hidden="true" />
+
+      <p>{item.description}</p>
+    </motion.article>
   );
 };
 

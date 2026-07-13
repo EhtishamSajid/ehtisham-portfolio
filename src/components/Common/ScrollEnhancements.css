@@ -1,0 +1,285 @@
+/* =========================================================
+   Scroll progress
+   ========================================================= */
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2000;
+
+  height: 4px;
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.scroll-progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  transform: scaleX(0);
+  transform-origin: left center;
+
+  border-radius: 0 999px 999px 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      #2563eb 0%,
+      #0ea5e9 55%,
+      #22d3ee 100%
+    );
+
+  box-shadow:
+    0 0 14px rgba(37, 99, 235, 0.55);
+
+  transition: transform 80ms linear;
+}
+
+/* =========================================================
+   Cursor glow — desktop only
+   ========================================================= */
+
+.cursor-glow {
+  --cursor-x: 50vw;
+  --cursor-y: 50vh;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+
+  width: 280px;
+  height: 280px;
+
+  transform:
+    translate(
+      calc(var(--cursor-x) - 140px),
+      calc(var(--cursor-y) - 140px)
+    );
+
+  border-radius: 999px;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(59, 130, 246, 0.11) 0%,
+      rgba(56, 189, 248, 0.065) 32%,
+      transparent 70%
+    );
+
+  filter: blur(12px);
+
+  transition: opacity 220ms ease;
+
+  will-change: transform;
+}
+
+.cursor-glow--visible {
+  opacity: 1;
+}
+
+.dark .cursor-glow {
+  background:
+    radial-gradient(
+      circle,
+      rgba(59, 130, 246, 0.12) 0%,
+      rgba(14, 165, 233, 0.07) 32%,
+      transparent 70%
+    );
+}
+
+/* =========================================================
+   Back to top
+   ========================================================= */
+
+.back-to-top {
+  position: fixed;
+  right: 26px;
+  bottom: 28px;
+  z-index: 1200;
+
+  display: flex;
+  width: 54px;
+  height: 54px;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(147, 197, 253, 0.5);
+  border-radius: 999px;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(37, 99, 235, 0.98),
+      rgba(14, 165, 233, 0.98)
+    );
+
+  box-shadow:
+    0 16px 38px rgba(37, 99, 235, 0.27);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform:
+    translateY(18px)
+    scale(0.88);
+
+  pointer-events: none;
+  cursor: pointer;
+
+  transition:
+    opacity 280ms ease,
+    visibility 280ms ease,
+    transform 280ms ease,
+    box-shadow 280ms ease;
+}
+
+.back-to-top--visible {
+  opacity: 1;
+  visibility: visible;
+
+  transform:
+    translateY(0)
+    scale(1);
+
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  transform:
+    translateY(-5px)
+    scale(1.04);
+
+  box-shadow:
+    0 22px 46px rgba(37, 99, 235, 0.36);
+}
+
+.back-to-top > svg {
+  position: relative;
+  z-index: 2;
+
+  width: 21px;
+  height: 21px;
+
+  stroke-width: 2.6;
+
+  transition: transform 260ms ease;
+}
+
+.back-to-top:hover > svg {
+  transform: translateY(-3px);
+}
+
+.back-to-top-ring {
+  position: absolute;
+  inset: 3px;
+
+  pointer-events: none;
+}
+
+.back-to-top-ring svg {
+  width: 100%;
+  height: 100%;
+
+  transform: rotate(-90deg);
+}
+
+.back-to-top-ring circle {
+  fill: none;
+
+  stroke: rgba(255, 255, 255, 0.23);
+  stroke-width: 2;
+}
+
+.back-to-top-ring-progress {
+  stroke: rgba(255, 255, 255, 0.88) !important;
+
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+
+  stroke-linecap: round;
+
+  transition: stroke-dashoffset 100ms linear;
+}
+
+.back-to-top:focus-visible {
+  outline: 3px solid #38bdf8;
+  outline-offset: 5px;
+}
+
+.dark .back-to-top {
+  border-color: rgba(125, 211, 252, 0.3);
+
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.38),
+    0 10px 30px rgba(37, 99, 235, 0.2);
+}
+
+/* =========================================================
+   Tablet and mobile
+   ========================================================= */
+
+@media (max-width: 720px) {
+  .scroll-progress {
+    height: 3px;
+  }
+
+  .cursor-glow {
+    display: none;
+  }
+
+  .back-to-top {
+    right: 16px;
+    bottom: 18px;
+
+    width: 48px;
+    height: 48px;
+  }
+
+  .back-to-top > svg {
+    width: 19px;
+    height: 19px;
+  }
+}
+
+@media (max-width: 420px) {
+  .back-to-top {
+    right: 12px;
+    bottom: 14px;
+
+    width: 45px;
+    height: 45px;
+  }
+}
+
+/* =========================================================
+   Reduced motion
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress span,
+  .cursor-glow,
+  .back-to-top,
+  .back-to-top > svg,
+  .back-to-top-ring-progress {
+    transition: none;
+  }
+
+  .back-to-top:hover {
+    transform: none;
+  }
+
+  .back-to-top:hover > svg {
+    transform: none;
+  }
+}

@@ -1,31 +1,47 @@
 import SectionContainer from "../Common/SectionContainer";
-import SectionTitle from "../Common/SectionTitle";
 import TimelineItem from "./TimelineItem";
 import { journey } from "./journeyData";
+import "./Journey.css";
 
 const Journey = () => {
   return (
-    <SectionContainer id="experience" variant="white" className="section-gap-150">
-      <SectionTitle
-        subtitle="Quality Journey"
-        title="My Professional Journey"
-        description="A clear timeline of education, internship experience, and the next QA role I am preparing for."
-      />
+    <SectionContainer
+      id="experience"
+      variant="white"
+      className="journey-section"
+    >
+      <div className="journey-inner">
+        <header className="journey-header">
+          <div className="journey-eyebrow">
+            <span className="journey-eyebrow-line" aria-hidden="true" />
 
-      <div className="relative mx-auto max-w-6xl">
-        <div
-          className="absolute bottom-8 left-4 top-4 w-px bg-gradient-to-b from-transparent via-blue-300/85 to-transparent dark:via-sky-300/42 lg:left-1/2 lg:-translate-x-1/2"
-          aria-hidden="true"
-        />
+            <p>Journey</p>
 
-        <div className="space-y-8 sm:space-y-10">
-          {journey.map((item, index) => (
-            <TimelineItem
-              key={`${item.year}-${item.title}`}
-              item={item}
-              index={index}
-            />
-          ))}
+            <span className="journey-eyebrow-line" aria-hidden="true" />
+          </div>
+
+          <h2>
+            My Professional <span>Journey</span>
+          </h2>
+
+          <p className="journey-description">
+            A clear timeline of my education, internship experience, and
+            preparation for my first full-time Software Quality Assurance role.
+          </p>
+        </header>
+
+        <div className="journey-timeline-wrapper">
+          <div className="journey-timeline-line" aria-hidden="true" />
+
+          <ol className="journey-timeline-list">
+            {journey.map((item, index) => (
+              <TimelineItem
+                key={`${item.year}-${item.title}`}
+                item={item}
+                index={index}
+              />
+            ))}
+          </ol>
         </div>
       </div>
     </SectionContainer>

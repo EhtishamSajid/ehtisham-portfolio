@@ -1,25 +1,206 @@
-import { FiAward } from "react-icons/fi";
-import GlassCard from "../Common/GlassCard";
+import {
+  FiAward,
+  FiBookOpen,
+  FiCalendar,
+  FiCheckCircle,
+  FiCode,
+  FiExternalLink,
+  FiLayers,
+  FiMoreVertical,
+  FiTool,
+} from "react-icons/fi";
 
-const CertificateCard = ({ certificate }) => {
+const certificateFallbacks = {
+  "Test Case Management with TestWorthy": {
+    category: "QA Certification",
+    skills: [
+      {
+        name: "Test Case Design",
+        icon: FiCheckCircle,
+      },
+      {
+        name: "Test Management",
+        icon: FiCheckCircle,
+      },
+      {
+        name: "QA Documentation",
+        icon: FiCheckCircle,
+      },
+    ],
+    tone: "blue",
+  },
+
+  "QA Fundamentals": {
+    category: "QA Certification",
+    skills: [
+      {
+        name: "Manual Testing",
+        icon: FiTool,
+      },
+      {
+        name: "STLC",
+        icon: FiLayers,
+      },
+      {
+        name: "Defect Reporting",
+        icon: FiCheckCircle,
+      },
+    ],
+    tone: "royal",
+  },
+
+  "Introduction to Software Testing - Level 1": {
+    category: "QA Certification",
+    skills: [
+      {
+        name: "Testing Fundamentals",
+        icon: FiBookOpen,
+      },
+      {
+        name: "Test Techniques",
+        icon: FiCheckCircle,
+      },
+      {
+        name: "Quality Concepts",
+        icon: FiAward,
+      },
+    ],
+    tone: "purple",
+  },
+
+  "HTML, CSS & JavaScript": {
+    category: "Technical Certification",
+    skills: [
+      {
+        name: "HTML",
+        icon: FiCode,
+      },
+      {
+        name: "CSS",
+        icon: FiCode,
+      },
+      {
+        name: "JavaScript Basics",
+        icon: FiCode,
+      },
+    ],
+    tone: "green",
+  },
+};
+
+const fallbackTones = ["blue", "royal", "purple", "green"];
+
+const CertificateCard = ({ certificate, index = 0 }) => {
+  const fallback = certificateFallbacks[certificate.title] ?? {
+    category: "QA Certification",
+    skills: [],
+    tone: fallbackTones[index % fallbackTones.length],
+  };
+
+  const category = certificate.category ?? fallback.category;
+  const tone = certificate.tone ?? fallback.tone;
+
+  const skills =
+    certificate.skills?.map((skill) =>
+      typeof skill === "string"
+        ? {
+            name: skill,
+            icon: FiCheckCircle,
+          }
+        : skill
+    ) ?? fallback.skills;
+
+  const previewHref =
+    certificate.previewUrl ??
+    certificate.url ??
+    certificate.link ??
+    null;
+
   return (
-    <GlassCard className="flex h-full min-h-[244px] min-w-0 flex-col p-6 sm:p-7">
-      <div className="flex h-[3.25rem] w-[3.25rem] shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-50 to-sky-50 text-blue-600 ring-1 ring-blue-100 dark:from-blue-500/15 dark:to-sky-300/10 dark:text-sky-300 dark:ring-sky-300/20 sm:h-14 sm:w-14">
-        <FiAward className="h-6 w-6" aria-hidden="true" />
+    <article
+    style={{
+        animationDelay: `${index * 120}ms`,
+      }}
+      className={`certificate-card certificate-card-${tone}`}
+      aria-labelledby={`certificate-title-${index}`}
+    >
+      <span className="certificate-bottom-accent" aria-hidden="true" />
+
+      <div className="certificate-top-row">
+        <span className="certificate-award-icon" aria-hidden="true">
+          <FiAward />
+        </span>
+
+        <span className="certificate-menu-icon" aria-hidden="true">
+          <FiMoreVertical />
+        </span>
       </div>
 
-      <h3 className="mt-5 break-words text-[1.3rem] font-black leading-tight text-slate-950 dark:text-white sm:mt-6 sm:text-[1.45rem]">
-        {certificate.title}
-      </h3>
+      <div className="certificate-content">
+        <p className="certificate-category">{category}</p>
 
-      <p className="mt-4 text-base font-extrabold leading-7 text-slate-600 dark:text-slate-300">
-        {certificate.issuer}
-      </p>
+        <h3 id={`certificate-title-${index}`}>
+          {certificate.title}
+        </h3>
 
-      <p className="mt-auto pt-5 text-[14px] font-extrabold text-blue-600 dark:text-sky-300 sm:text-[15px]">
-        {certificate.date}
-      </p>
-    </GlassCard>
+        <p className="certificate-issuer">{certificate.issuer}</p>
+
+        {skills.length > 0 && (
+          <div
+            className="certificate-skills"
+            aria-label={`Skills covered by ${certificate.title}`}
+          >
+            {skills.map((skill) => {
+              const SkillIcon = skill.icon ?? FiCheckCircle;
+
+              return (
+                <div
+                  key={skill.name}
+                  className="certificate-skill-pill"
+                >
+                  <span
+                    className="certificate-skill-icon"
+                    aria-hidden="true"
+                  >
+                    <SkillIcon />
+                  </span>
+
+                  <span>{skill.name}</span>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </div>
+
+      <footer className="certificate-footer">
+        <div className="certificate-date">
+          <FiCalendar aria-hidden="true" />
+          <span>{certificate.date}</span>
+        </div>
+
+        {previewHref ? (
+          <a
+            href={previewHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="certificate-preview"
+            aria-label={`Preview ${certificate.title} certificate`}
+          >
+            <span>Preview</span>
+            <FiExternalLink aria-hidden="true" />
+          </a>
+        ) : (
+          <span
+            className="certificate-preview certificate-preview-disabled"
+            aria-label={`Preview for ${certificate.title} is not available`}
+          >
+            <span>Preview</span>
+            <FiExternalLink aria-hidden="true" />
+          </span>
+        )}
+      </footer>
+    </article>
   );
 };
 

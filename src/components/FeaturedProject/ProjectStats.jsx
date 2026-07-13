@@ -1,33 +1,76 @@
-import GlassCard from "../Common/GlassCard";
+import {
+  FiActivity,
+  FiFileText,
+  FiTarget,
+} from "react-icons/fi";
 
 const stats = [
   {
-    label: "Status",
-    value: "In-progress case study",
+    icon: FiActivity,
+    label: "Current Status",
+    title: "Case study in progress",
+    description:
+      "Actively documenting and validating test scenarios, test cases and defects.",
+    tone: "orange",
   },
   {
-    label: "Artifacts",
-    value: "Scenarios, test cases, defects",
+    icon: FiFileText,
+    label: "Planned Artifacts",
+    title: "Test scenarios, test cases and defect reports",
+    description:
+      "Comprehensive test artifacts for end-to-end coverage.",
+    tone: "blue",
   },
   {
-    label: "Process",
-    value: "Manual QA documentation",
+    icon: FiTarget,
+    label: "Primary Focus",
+    title: "Manual functional testing",
+    description:
+      "Ensuring quality through detailed manual validation.",
+    tone: "green",
   },
 ];
 
 const ProjectStats = () => {
   return (
-    <div className="grid gap-5 sm:grid-cols-3 lg:sticky lg:top-28 lg:grid-cols-1">
-      {stats.map((stat) => (
-        <GlassCard key={stat.label} hover={false} className="min-w-0 p-5 sm:p-6">
-          <p className="text-[12px] font-extrabold uppercase tracking-[0.16em] text-blue-600 dark:text-sky-300 sm:text-[13px]">
-            {stat.label}
-          </p>
-          <p className="mt-3 break-words text-lg font-black leading-7 text-slate-950 dark:text-white sm:text-xl">
-            {stat.value}
-          </p>
-        </GlassCard>
-      ))}
+    <div
+      className="project-summary-grid"
+      aria-label="Project summary"
+    >
+      {stats.map((stat) => {
+        const Icon = stat.icon;
+
+        return (
+          <article
+            key={stat.label}
+            className={`project-summary-card project-summary-${stat.tone}`}
+          >
+            <span
+              className="project-summary-icon"
+              aria-hidden="true"
+            >
+              <Icon />
+            </span>
+
+            <div className="project-summary-content">
+              <p className="project-summary-label">
+                {stat.label}
+              </p>
+
+              <h3>{stat.title}</h3>
+
+              <p className="project-summary-description">
+                {stat.description}
+              </p>
+
+              <span
+                className="project-summary-underline"
+                aria-hidden="true"
+              />
+            </div>
+          </article>
+        );
+      })}
     </div>
   );
 };

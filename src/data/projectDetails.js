@@ -35,7 +35,12 @@ export const projectDetails = [
       },
       {
         title: "Tools",
-        items: ["OrangeHRM demo application", "Jira", "Postman", "Spreadsheet-based QA documentation"],
+        items: [
+  "OrangeHRM demo application",
+  "Jira",
+  "Chrome DevTools",
+  "Spreadsheet-based QA documentation",
+    ],
       },
       {
         title: "Current Status",

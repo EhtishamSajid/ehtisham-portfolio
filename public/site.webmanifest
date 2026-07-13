@@ -1,18 +1,15 @@
 {
-  "name": "Ehtisham Sajid - Software Quality Assurance Engineer Portfolio",
-  "short_name": "Ehtisham Sajid",
-  "description": "Portfolio of Ehtisham Sajid, a Software Quality Assurance Engineer focused on manual testing, API testing, test case design, bug reporting, Jira, and Postman.",
-  "start_url": ".",
-  "scope": ".",
+  "name": "Ehtisham Sajid Portfolio",
+  "short_name": "Ehtisham",
+  "start_url": "/",
   "display": "standalone",
-  "background_color": "#0f172a",
+  "background_color": "#ffffff",
   "theme_color": "#2563eb",
   "icons": [
     {
       "src": "/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any"
+      "sizes": "64x64",
+      "type": "image/svg+xml"
     }
   ]
 }

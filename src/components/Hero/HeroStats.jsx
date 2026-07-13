@@ -1,46 +1,79 @@
 import { motion } from "framer-motion";
-import GlassCard from "../Common/GlassCard";
+import {
+  FiAward,
+  FiBriefcase,
+  FiTarget,
+} from "react-icons/fi";
+import { FaGraduationCap } from "react-icons/fa";
 
 const stats = [
   {
-    number: "QA",
-    label: "Manual + API Focus",
+    icon: FiBriefcase,
+    number: "1",
+    title: "QA Internship",
+    description: "Hands-on experience in real projects",
+    tone: "blue",
   },
   {
-    number: "4",
-    label: "QA Certifications",
+    icon: FiAward,
+    number: "3",
+    title: "QA Certifications",
+    description: "Continuous learning in QA & Testing",
+    tone: "purple",
   },
   {
+    icon: FaGraduationCap,
     number: "2026",
-    label: "BSSE Graduate",
+    title: "BS Software Engineering",
+    description: "Riphah International University",
+    tone: "blue",
   },
   {
+    icon: FiTarget,
     number: "Open",
-    label: "Junior QA Roles",
+    title: "Junior QA Opportunities",
+    description: "Actively seeking roles to contribute & grow",
+    tone: "green",
   },
 ];
 
 const HeroStats = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
+    <motion.section
+      initial={{ opacity: 0, y: 28 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.5, duration: 0.8 }}
-      className="mt-10 grid gap-4 sm:mt-14 sm:grid-cols-2 lg:mt-20 lg:grid-cols-4"
+      transition={{
+        delay: 0.35,
+        duration: 0.7,
+        ease: "easeOut",
+      }}
+      className="hero-stats-card"
       aria-label="Portfolio highlights"
     >
-      {stats.map((item) => (
-        <GlassCard key={item.label} className="border-blue-100/80 bg-white/88 p-5 text-center dark:border-sky-300/20 dark:bg-white/[0.095] sm:p-7">
-          <p className="text-[40px] font-black leading-none text-blue-600 dark:text-sky-200 sm:text-[50px]">
-            {item.number}
-          </p>
+      {stats.map((stat) => {
+        const Icon = stat.icon;
 
-          <p className="mt-3 text-base font-extrabold text-slate-600 dark:text-slate-100 sm:text-lg">
-            {item.label}
-          </p>
-        </GlassCard>
-      ))}
-    </motion.div>
+        return (
+          <article
+            key={stat.title}
+            className={`hero-stat hero-stat--${stat.tone}`}
+          >
+            <span className="hero-stat-icon" aria-hidden="true">
+              <Icon />
+            </span>
+
+            <div className="hero-stat-content">
+              <p className="hero-stat-number">{stat.number}</p>
+              <h3>{stat.title}</h3>
+              <p className="hero-stat-description">
+                {stat.description}
+              </p>
+              <span className="hero-stat-accent" aria-hidden="true" />
+            </div>
+          </article>
+        );
+      })}
+    </motion.section>
   );
 };
 
