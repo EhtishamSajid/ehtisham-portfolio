@@ -1,7 +1,12 @@
 node_modules
 dist
+
 .env
 .env.*
-*.local
+
 .vscode
+
+portfolio-vite.log
+portfolio-vite.err.log
+
 .DS_Store
